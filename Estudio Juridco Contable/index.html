@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <link rel="icon" href="/Estudio Juridco Contable/assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/Estudio Juridco Contable/assets/css/styles.css">
 </head>
+
 <body>
     <!-- Barra de navegación -->
-    <nav class="nav-container"> 
-        <div class="nav-content"> 
+    <nav class="nav-container">
+        <div class="nav-content">
             <div class="nav-brand">Estudio Jurídico Contable</div>
             <button class="menu-btn" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
@@ -105,7 +107,7 @@
                         <ul class="contact-info-list">
                             <li>
                                 <i class="fas fa-map-marker-alt contact-icon"></i>
-                                San Martin y 25 de Mayo - Galeria Coral  Oficina 20
+                                San Martin y 25 de Mayo - Galeria Coral Oficina 20
                             </li>
                             <li>
                                 <i class="fas fa-phone contact-icon"></i>
@@ -124,6 +126,27 @@
                                 ejuridico.contable24@gmail.com
                             </li>
                         </ul>
+                        <!-- Actualizar la sección de contacto -->
+                        <form class="contact-form" onsubmit="validateForm(event)">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje</label>
+
+                                <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="hero-button">Enviar</button>
+
+                            <div class="form-error"></div>
+
+                            <div class="form-success">¡Mensaje enviado con éxito!</div>
+                        </form>
                     </div>
                     <div>
                         <h3 class="contact-info-title">Horario de Atención</h3>
@@ -140,6 +163,8 @@
     <footer class="footer">
         <p>&copy; 2024 Eliel Balmaceda. Todos los derechos reservados.</p>
     </footer>
-    <script src="assets/js/script.js"></script> <!--Va aca ultimo porque permite que el HTML se cargue completamente antes de ejecutar el JavaScript-->
+    <script src="assets/js/script.js"></script>
+    <!--Va aca ultimo porque permite que el HTML se cargue completamente antes de ejecutar el JavaScript-->
 </body>
+
 </html>

@@ -252,6 +252,40 @@ body {
     margin-right: 0.5rem;
 }
 
+/* Formulario de contacto */
+.contact-form {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+}
+
+.form-error {
+    display: none;
+    color: #e53e3e;
+    margin-top: 1rem;
+}
+
+.form-success {
+    display: none;
+    color: #38a169;
+    margin-top: 1rem;
+}
 /* Footer */
 .footer {
     background-color: #1a202c;
