@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Jurídico Contable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Estudio Juridco Contable/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/Estudio Juridco Contable/assets/css/styles.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="nav-container"> 
+        <div class="nav-content"> 
+            <div class="nav-brand">Estudio Jurídico Contable</div>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#equipo" class="nav-link">Nosotras</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Soluciones Legales y Contables</h1>
+            <p class="hero-subtitle">Experiencia y profesionalismo a su servicio</p>
+            <a href="#contacto" class="hero-button">Contactanos</a>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="section section-gray">
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-balance-scale service-icon"></i>
+                <h3 class="service-title">Servicios Jurídicos</h3>
+                <ul class="service-list">
+                    <li>Derecho Comercial</li>
+                    <li>Derecho Laboral</li>
+                    <li>Derecho Civil</li>
+                    <li>Asesoría Legal</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-calculator service-icon"></i>
+                <h3 class="service-title">Servicios Contables</h3>
+                <ul class="service-list">
+                    <li>Altas / Bajas</li>
+                    <li>Recategorización</li>
+                    <li>Facturación</li>
+                    <li>Ingresos Brutos</li>
+                    <li>Asesoramiento personalizado</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-handshake service-icon"></i>
+                <h3 class="service-title">Consultoría</h3>
+                <ul class="service-list">
+                    <li>Gestión Empresarial</li>
+                    <li>Planificación Estratégica</li>
+                    <li>Análisis de Riesgos</li>
+                    <li>Optimización de Procesos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del Equipo -->
+    <section id="equipo" class="section">
+        <h2 class="section-title">Nosotras</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="/Estudio Juridco Contable/assets/img/fotoGuada.JPG" alt="Profesional 1" class="team-image">
+                <h3 class="team-name">Guadalupe Balmaceda</h3>
+                <p class="team-role">Abogada</p>
+            </div>
+            <div class="team-member">
+                <img src="/Estudio Juridco Contable/assets/img/fotoJesi.JPG" alt="Profesional 2" class="team-image">
+                <h3 class="team-name">Jesica Debia</h3>
+                <p class="team-role">Abogada</p>
+            </div>
+            <div class="team-member">
+                <img src="/Estudio Juridco Contable/assets/img/fotoEugenia.JPG" alt="Profesional 3" class="team-image">
+                <h3 class="team-name">Eugenia Ledesma</h3>
+                <p class="team-role">Contadora Publica</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="section section-gray">
+        <h2 class="section-title">Contáctenos</h2>
+        <div class="contact-container">
+            <div class="contact-card">
+                <div class="contact-grid">
+                    <div>
+                        <h3 class="contact-info-title">Información de Contacto</h3>
+                        <ul class="contact-info-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                                San Martin y 25 de Mayo - Galeria Coral  Oficina 20
+                            </li>
+                            <li>
+                                <i class="fas fa-phone contact-icon"></i>
+                                3462-553962 Guadalupe Balmaceda
+                            </li>
+                            <li>
+                                <i class="fas fa-phone contact-icon"></i>
+                                3462-334567 Jesica Debia
+                            </li>
+                            <li>
+                                <i class="fas fa-phone contact-icon"></i>
+                                3462-676505 Eugenia Ledesma
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope contact-icon"></i>
+                                ejuridico.contable24@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="contact-info-title">Horario de Atención</h3>
+                        <ul class="contact-info-list">
+                            <li>Lunes a Viernes: 08:00 hasta 12:00 - 17:00 hasta 20:00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Eliel Balmaceda. Todos los derechos reservados.</p>
+    </footer>
+    <script src="assets/js/script.js"></script> <!--Va aca ultimo porque permite que el HTML se cargue completamente antes de ejecutar el JavaScript-->
+</body>
+</html>
