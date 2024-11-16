@@ -38,3 +38,25 @@ const validateForm = (event) => {
     successDiv.style.display = 'block';
     form.reset();
 }
+/*Enviar a correo*/
+const btn = document.getElementById('submit-btn');
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    const serviceID = 'default_service';
+    const templateID = 'template_tlxar4g';
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            btn.textContent = 'Enviar';
+            btn.disabled = false;
+            alert('¡Mensaje enviado con éxito!');
+            form.reset();
+        })
+        .catch((err) => {
+            btn.textContent = 'Enviar';
+            btn.disabled = false;
+            alert('Error al enviar el mensaje: ' + JSON.stringify(err));
+        });
+});
