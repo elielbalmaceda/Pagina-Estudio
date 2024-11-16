@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +9,13 @@
     <link rel="icon" href="/Estudio Juridco Contable/assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/Estudio Juridco Contable/assets/css/styles.css">
 </head>
-
 <body>
     <!-- Barra de navegación -->
     <nav class="nav-container">
         <div class="nav-content">
+            <a href="index.html" class="logo-link">
+                <img src="/Estudio Juridco Contable/assets/img/logoprincipal.png" alt="Logo Estudio Jurídico Contable" class="logo">
+            </a>
             <div class="nav-brand">Estudio Jurídico Contable</div>
             <button class="menu-btn" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
@@ -27,7 +28,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Header / Hero -->
     <header id="inicio" class="hero">
         <div class="hero-content">
@@ -36,7 +36,6 @@
             <a href="#contacto" class="hero-button">Contactanos</a>
         </div>
     </header>
-
     <!-- Sección de Servicios -->
     <section id="servicios" class="section section-gray">
         <div class="services-grid">
@@ -44,31 +43,31 @@
                 <i class="fas fa-balance-scale service-icon"></i>
                 <h3 class="service-title">Servicios Jurídicos</h3>
                 <ul class="service-list">
-                    <li>Derecho Comercial</li>
+                    <li>Derecho de Familia y Sucesiones</li>
+                    <li>Asesoramiento de empresas</li>
                     <li>Derecho Laboral</li>
-                    <li>Derecho Civil</li>
-                    <li>Asesoría Legal</li>
+                    <li>Daños y Perjuicios</li>
                 </ul>
             </div>
             <div class="service-card">
                 <i class="fas fa-calculator service-icon"></i>
                 <h3 class="service-title">Servicios Contables</h3>
                 <ul class="service-list">
-                    <li>Altas / Bajas</li>
+                    <li>Altas y Bajas de Monotributo</li>
                     <li>Recategorización</li>
                     <li>Facturación</li>
-                    <li>Ingresos Brutos</li>
-                    <li>Asesoramiento personalizado</li>
+                    <li>Responsables Inscriptos</li>
+                    <li>Sociedades</li>
+                    <li>Asesoramiento Personalizado</li>
                 </ul>
             </div>
             <div class="service-card">
                 <i class="fas fa-handshake service-icon"></i>
-                <h3 class="service-title">Consultoría</h3>
+                <h3 class="service-title">Consultoría Integral</h3>
                 <ul class="service-list">
-                    <li>Gestión Empresarial</li>
-                    <li>Planificación Estratégica</li>
-                    <li>Análisis de Riesgos</li>
-                    <li>Optimización de Procesos</li>
+                    <li>Análisis y Redacción de Contratos</li>
+                    <li>Prevención de Conflictos Legales y Sanciones Administrativas</li>
+                    <li>Negociación con Clientes y Consumidores</li>
                 </ul>
             </div>
         </div>
@@ -78,17 +77,17 @@
         <h2 class="section-title">Nosotras</h2>
         <div class="team-grid">
             <div class="team-member">
-                <img src="/Estudio Juridco Contable/assets/img/fotoGuada.JPG" alt="Profesional 1" class="team-image">
+                <img src="/Estudio Juridco Contable/assets/img/fotoGuada.JPG" loading ="lazy" alt="Profesional 1" class="team-image">
                 <h3 class="team-name">Guadalupe Balmaceda</h3>
                 <p class="team-role">Abogada</p>
             </div>
             <div class="team-member">
-                <img src="/Estudio Juridco Contable/assets/img/fotoJesi.JPG" alt="Profesional 2" class="team-image">
+                <img src="/Estudio Juridco Contable/assets/img/fotoJesi.JPG" loading ="lazy" alt="Profesional 2" class="team-image">
                 <h3 class="team-name">Jesica Debia</h3>
                 <p class="team-role">Abogada</p>
             </div>
             <div class="team-member">
-                <img src="/Estudio Juridco Contable/assets/img/fotoEugenia.JPG" alt="Profesional 3" class="team-image">
+                <img src="/Estudio Juridco Contable/assets/img/fotoEugenia.JPG" loading ="lazy" alt="Profesional 3" class="team-image">
                 <h3 class="team-name">Eugenia Ledesma</h3>
                 <p class="team-role">Contadora Publica</p>
             </div>
@@ -96,7 +95,7 @@
     </section>
     <!-- Sección de Contacto -->
     <section id="contacto" class="section section-gray">
-        <h2 class="section-title">Contáctenos</h2>
+        <h2 class="section-title">Contactanos</h2>
         <div class="contact-container">
             <div class="contact-card">
                 <div class="contact-grid">
@@ -165,11 +164,6 @@
     </footer>
             <!--Script de EmailJS-->
             <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-            <script>
-                (function(){
-                    emailjs.init("13vrVxjlRSIHm0D7a");
-                })();
-            </script>
     <script src="assets/js/script.js"></script>
     <!--Va aca ultimo porque permite que el HTML se cargue completamente antes de ejecutar el JavaScript-->
 </body>
