@@ -33,7 +33,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Soluciones Legales y Contables</h1>
             <p class="hero-subtitle">Experiencia y profesionalismo a su servicio</p>
-            <a href="#contacto" class="hero-button">Contactanos</a>
+            <a href="https://wa.me/3462334567" class="hero-button">Contactanos</a>
         </div>
     </header>
     <!-- Sección de Servicios -->
@@ -94,77 +94,53 @@
         </div>
     </section>
     <!-- Sección de Contacto -->
-    <section id="contacto" class="section section-gray">
-        <h2 class="section-title">Contactanos</h2>
+    <section class="contact-section">
+        <h2>Contáctanos</h2>
         <div class="contact-container">
-            <div class="contact-card">
-                <div class="contact-grid">
-                    <div>
-                        <h3 class="contact-info-title">Información de Contacto</h3>
-                        <ul class="contact-info-list">
-                            <li>
-                                <i class="fas fa-map-marker-alt contact-icon"></i>
-                                San Martin y 25 de Mayo - Galeria Coral Oficina 20
-                            </li>
-                            <li>
-                                <i class="fas fa-phone contact-icon"></i>
-                                3462-553962 Guadalupe Balmaceda
-                            </li>
-                            <li>
-                                <i class="fas fa-phone contact-icon"></i>
-                                3462-334567 Jesica Debia
-                            </li>
-                            <li>
-                                <i class="fas fa-phone contact-icon"></i>
-                                3462-676505 Eugenia Ledesma
-                            </li>
-                            <li>
-                                <i class="fas fa-envelope contact-icon"></i>
-                                ejuridico.contable24@gmail.com
-                            </li>
-                        </ul>
-                        <!-- Formulario -->
-                        <form id="contact-form" class="contact-form">
-                            <div class="form-group">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" id="nombre" name="from_name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="apellido">Apellido</label>
-                                <input type="text" id="apellido" name="from_lastname" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefono">Teléfono</label>
-                                <input type="tel" id="telefono" name="from_phone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="from_email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="mensaje">Consulta</label>
-                                <textarea id="mensaje" name="message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" id="submit-btn" class="hero-button">Enviar</button>
-                        </form>
-                    </div>
-                    <div>
-                        <h3 class="contact-info-title">Horario de Atención</h3>
-                        <ul class="contact-info-list">
-                            <li>Lunes a Viernes: 08:00 hasta 12:00 - 17:00 hasta 20:00</li>
-                        </ul>
-                    </div>
-                </div>
+            <!-- Información de contacto -->
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> San Martín y 25 de Mayo - Galería Coral Oficina 20</li>
+                    <li><i class="fas fa-phone"></i> 3462-553962 Guadalupe Balmaceda</li>
+                    <li><i class="fas fa-phone"></i> 3462-334567 Jesica Debia</li>
+                    <li><i class="fas fa-phone"></i> 3462-676505 Eugenia Ledesma</li>
+                    <li><i class="fas fa-envelope"></i> ejuridico.contable24@gmail.com</li>
+                </ul>
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 08:00 - 12:00 | 17:00 - 20:00</p>
+            </div>
+            <!-- Formulario -->
+            <div class="contact-form">
+                <form id="contact-form">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                    
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="consulta">Consulta</label>
+                    <textarea id="consulta" name="consulta" rows="4" required></textarea>
+                    
+                    <button type="submit" id="submit-btn">Enviar</button>
+                </form>
             </div>
         </div>
-    </section>
+    </section> 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Eliel Balmaceda. Todos los derechos reservados.</p>
     </footer>
             <!--Script de EmailJS-->
             <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <!--Va aca ultimo porque permite que el HTML se cargue completamente antes de ejecutar el JavaScript-->
+            <!--Script de JavaScript-->
+            <script src="assets/js/script.js" defer></script>
+    <!--Va aca ultimo porque permite que el HTML se cargue completamente antes de ejecutar el JavaScript. defer para que el script no bloquee la carga del html-->
 </body>
 </html>
