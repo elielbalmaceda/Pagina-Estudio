@@ -3,70 +3,60 @@ html, body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.5;
 }
 
-/* Navegación */
 .nav-container {
-    padding: 1rem;
     background-color: #1a202c;
-    color: white;
+    padding: 1rem;
+    position: relative;
 }
 
 .nav-content {
-    max-width: 1280px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
 }
 
-/* Menú móvil */
+.logo {
+    height: 40px;
+    max-width: 100%;
+    margin-right: 0.5rem;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo del botón del menú móvil */
 .menu-btn {
-    display: none;
     background: none;
     border: none;
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
-}
-
-.logo-link {
     display: block;
-    margin-right: 2rem;
 }
 
-.logo {
-    width: 70px; 
-    height: auto;
-}
-
-@media (max-width: 768px) {
-    .menu-btn {
-        display: block;
-    }
-}
-
-.nav-brand {
-    font-size: 1.50rem;
-    font-weight: bold;
-}
-
+/* Menú oculto por defecto */
 .nav-links {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .nav-links {
-        display: flex;
-        gap: 1.5rem;
-    }
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
     color: white;
     text-decoration: none;
+    margin: 0.5rem 0;
     transition: color 0.2s;
 }
 
@@ -74,9 +64,30 @@ html, body{
     color: #cbd5e0;
 }
 
+/* Menú visible al activar */
+.nav-links.nav-active {
+    display: flex;
+}
+
+/* Menú horizontal en pantallas grandes */
+@media (min-width: 768px) {
+    .menu-btn {
+        display: none; /* Esconde el botón en pantallas grandes */
+    }
+
+    .nav-links {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: center; /* Centra los enlaces horizontalmente */
+        padding: 0; /* Asegura que no haya relleno sobrante */
+    }
+}
+
 /* Header/Hero */
 .hero {
-    background-color: #1a365d;
+    background-color: #253675;
     color: white;
     padding: 5rem 1rem;
     text-align: center;
@@ -295,7 +306,7 @@ html, body{
 .contact-form button {
     width: 100%;
     padding: 10px;
-    background: #007bff;
+    background: #253675;
     color: #fff;
     border: none;
     border-radius: 5px;
