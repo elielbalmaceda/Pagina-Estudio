@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const toggleMenu = () => {
     navLinks.classList.toggle('nav-active');
     const isActive = navLinks.classList.contains('nav-active');
-    
-    menuBtn.innerHTML = isActive 
-        ? '<i class="fas fa-times"></i>' 
+
+    menuBtn.innerHTML = isActive
+        ? '<i class="fas fa-times"></i>'
         : '<i class="fas fa-bars"></i>';
-    
+
     // Prevenir scroll cuando el menú está abierto
     document.body.style.overflow = isActive ? 'hidden' : '';
 };
@@ -27,7 +27,7 @@ document.addEventListener('click', (e) => {
     const isMenuOpen = navLinks.classList.contains('nav-active');
     const isMenuBtn = e.target.closest('.menu-btn');
     const isNavLink = e.target.closest('.nav-link');
-    
+
     if (isMenuOpen && !isMenuBtn && (isNavLink || !e.target.closest('.nav-links'))) {
         toggleMenu();
     }
@@ -80,10 +80,10 @@ Object.keys(validators).forEach(fieldName => {
 const validateField = (fieldName, value) => {
     const error = validators[fieldName]?.(value.trim());
     const input = document.getElementById(fieldName);
-    const errorElement = input.nextElementSibling?.classList.contains('error-message') 
-        ? input.nextElementSibling 
+    const errorElement = input.nextElementSibling?.classList.contains('error-message')
+        ? input.nextElementSibling
         : document.createElement('div');
-    
+
     if (error) {
         if (!errorElement.classList.contains('error-message')) {
             errorElement.className = 'error-message';
@@ -95,7 +95,7 @@ const validateField = (fieldName, value) => {
         errorElement.remove();
         input.classList.remove('invalid');
     }
-    
+
     return !error;
 };
 
@@ -124,9 +124,9 @@ const handleSubmit = async (event) => {
     try {
         const serviceID = 'default_service';
         const templateID = 'template_tlxar4g';
-        
+
         await emailjs.sendForm(serviceID, templateID, form);
-        
+
         // Mostrar mensaje de éxito
         showNotification('¡Mensaje enviado con éxito!', 'success');
         form.reset();
@@ -144,9 +144,9 @@ const showNotification = (message, type = 'success') => {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
-    
+
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.classList.add('show');
         setTimeout(() => {

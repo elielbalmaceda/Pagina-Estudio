@@ -1,11 +1,12 @@
 /* Estilos generales */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     line-height: 1.5;
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 .nav-container {
@@ -73,7 +74,8 @@ html, body {
 /* Menú horizontal en pantallas grandes */
 @media (min-width: 768px) {
     .menu-btn {
-        display: none; /* Esconde el botón en pantallas grandes */
+        display: none;
+        /* Esconde el botón en pantallas grandes */
     }
 
     .nav-links {
@@ -81,8 +83,10 @@ html, body {
         position: static;
         flex-direction: row;
         gap: 1.5rem;
-        justify-content: center; /* Centra los enlaces horizontalmente */
-        padding: 0; /* Asegura que no haya relleno sobrante */
+        justify-content: center;
+        /* Centra los enlaces horizontalmente */
+        padding: 0;
+        /* Asegura que no haya relleno sobrante */
     }
 }
 
@@ -223,12 +227,13 @@ html, body {
 }
 
 .team-image {
-    width: 200px;/*Ajuste de imagen*/
-    height: auto; 
-    aspect-ratio: 1 / 1; 
-    border-radius: 50%; 
+    width: 200px;
+    /*Ajuste de imagen*/
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     margin: 0 auto 1rem;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .team-name {
@@ -309,7 +314,8 @@ html, body {
     color: #555;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -338,6 +344,7 @@ html, body {
         flex-direction: column;
     }
 }
+
 /* Footer */
 .footer {
     background-color: #1a202c;
