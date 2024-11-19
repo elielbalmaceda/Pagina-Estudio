@@ -1,75 +1,168 @@
 // Referencias al DOM
 const menuBtn = document.querySelector('.menu-btn');
 const navLinks = document.querySelector('.nav-links');
-const errorDiv = document.querySelector('.form-error');
-const successDiv = document.querySelector('.form-success');
-const btn = document.getElementById('submit-btn');
 const form = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
 
-// Función para alternar el menú móvil
+// Configuración de EmailJS
+document.addEventListener('DOMContentLoaded', () => {
+    emailjs.init("13vrVxjlRSIHm0D7a");
+});
+
+// Manejo del menú móvil
 const toggleMenu = () => {
-    const isActive = navLinks.classList.contains('nav-active');
     navLinks.classList.toggle('nav-active');
+    const isActive = navLinks.classList.contains('nav-active');
+    
     menuBtn.innerHTML = isActive 
-        ? '<i class="fas fa-bars"></i>' 
-        : '<i class="fas fa-times"></i>';
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    
+    // Prevenir scroll cuando el menú está abierto
+    document.body.style.overflow = isActive ? 'hidden' : '';
 };
 
-// Validación del email
-const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
+// Cerrar menú al hacer click en un enlace o fuera del menú
+document.addEventListener('click', (e) => {
+    const isMenuOpen = navLinks.classList.contains('nav-active');
+    const isMenuBtn = e.target.closest('.menu-btn');
+    const isNavLink = e.target.closest('.nav-link');
+    
+    if (isMenuOpen && !isMenuBtn && (isNavLink || !e.target.closest('.nav-links'))) {
+        toggleMenu();
+    }
+});
+
+// Validaciones
+const validators = {
+    nombre: (value) => {
+        if (!value) return 'El nombre es requerido';
+        if (value.length < 2) return 'El nombre debe tener al menos 2 caracteres';
+        return null;
+    },
+    apellido: (value) => {
+        if (!value) return 'El apellido es requerido';
+        if (value.length < 2) return 'El apellido debe tener al menos 2 caracteres';
+        return null;
+    },
+    telefono: (value) => {
+        if (!value) return 'El teléfono es requerido';
+        if (!/^\d{10}$/.test(value.replace(/\D/g, ''))) {
+            return 'Ingrese un número de teléfono válido (10 dígitos)';
+        }
+        return null;
+    },
+    email: (value) => {
+        if (!value) return 'El email es requerido';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+            return 'Ingrese un email válido';
+        }
+        return null;
+    },
+    consulta: (value) => {
+        if (!value) return 'La consulta es requerida';
+        if (value.length < 10) return 'La consulta debe tener al menos 10 caracteres';
+        return null;
+    }
 };
 
-// Validación del formulario de contacto
-const validateForm = (event) => {
+// Validación en tiempo real
+Object.keys(validators).forEach(fieldName => {
+    const input = document.getElementById(fieldName);
+    if (input) {
+        input.addEventListener('blur', () => {
+            validateField(fieldName, input.value);
+        });
+    }
+});
+
+// Función para validar un campo específico
+const validateField = (fieldName, value) => {
+    const error = validators[fieldName]?.(value.trim());
+    const input = document.getElementById(fieldName);
+    const errorElement = input.nextElementSibling?.classList.contains('error-message') 
+        ? input.nextElementSibling 
+        : document.createElement('div');
+    
+    if (error) {
+        if (!errorElement.classList.contains('error-message')) {
+            errorElement.className = 'error-message';
+            input.parentNode.insertBefore(errorElement, input.nextSibling);
+        }
+        errorElement.textContent = error;
+        input.classList.add('invalid');
+    } else {
+        errorElement.remove();
+        input.classList.remove('invalid');
+    }
+    
+    return !error;
+};
+
+// Manejo del envío del formulario
+const handleSubmit = async (event) => {
     event.preventDefault();
-    const form = event.target;
-    const nombre = form.querySelector('#nombre').value.trim();
-    const email = form.querySelector('#email').value.trim();
-    const mensaje = form.querySelector('#mensaje').value.trim();
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
-    if (!nombre || !email || !mensaje) {
-        errorDiv.textContent = 'Por favor, complete todos los campos';
-        errorDiv.style.display = 'block';
-        return;
+    // Validar todos los campos
+    const formData = new FormData(form);
+    let isValid = true;
+
+    for (const [fieldName, value] of formData.entries()) {
+        if (!validateField(fieldName, value)) {
+            isValid = false;
+        }
     }
 
-    if (!validateEmail(email)) {
-        errorDiv.textContent = 'Por favor, ingrese un email válido';
-        errorDiv.style.display = 'block';
+    if (!isValid) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
         return;
     }
-
-    // Si todo está bien
-    errorDiv.style.display = 'none';
-    successDiv.style.display = 'block';
-    form.reset();
-};
-
-emailjs.init("13vrVxjlRSIHm0D7a");
-
-// Envío del formulario con EmailJS
-const sendEmail = async (event) => {
-    event.preventDefault();
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-
-    const serviceID = 'default_service';
-    const templateID = 'template_tlxar4g';
 
     try {
+        const serviceID = 'default_service';
+        const templateID = 'template_tlxar4g';
+        
         await emailjs.sendForm(serviceID, templateID, form);
-        alert('¡Mensaje enviado con éxito!');
+        
+        // Mostrar mensaje de éxito
+        showNotification('¡Mensaje enviado con éxito!', 'success');
         form.reset();
-    } catch (err) {
-        alert('Error al enviar el mensaje: ' + JSON.stringify(err));
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al enviar el mensaje. Por favor, intente nuevamente.', 'error');
     } finally {
-        btn.textContent = 'Enviar';
-        btn.disabled = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
     }
 };
 
-// Eventos
+// Función para mostrar notificaciones
+const showNotification = (message, type = 'success') => {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }, 100);
+};
+
+// Event Listeners
 menuBtn.addEventListener('click', toggleMenu);
-form.addEventListener('submit', sendEmail);
+form.addEventListener('submit', handleSubmit);
+
+// Cerrar menú al redimensionar la ventana
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navLinks.classList.contains('nav-active')) {
+        toggleMenu();
+    }
+});

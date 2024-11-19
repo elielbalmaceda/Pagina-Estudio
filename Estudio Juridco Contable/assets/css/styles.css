@@ -1,10 +1,11 @@
 /* Estilos generales */
-html, body{
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     line-height: 1.5;
+    font-size: 16px; 
 }
 
 .nav-container {
@@ -17,7 +18,7 @@ html, body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 75rem;
     margin: auto;
     padding: 0 1rem;
 }
@@ -57,7 +58,7 @@ html, body{
     color: white;
     text-decoration: none;
     margin: 0.5rem 0;
-    transition: color 0.2s;
+    transition: color 0.3s;
 }
 
 .nav-link:hover {
@@ -89,24 +90,24 @@ html, body{
 .hero {
     background-color: #253675;
     color: white;
-    padding: 5rem 1rem;
+    padding: 4rem 1rem;
     text-align: center;
 }
 
 .hero-content {
-    max-width: 1280px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
 .hero-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
     .hero-title {
-        font-size: 3.75rem;
+        font-size: 3rem;
     }
 }
 
@@ -153,9 +154,16 @@ html, body{
     gap: 2rem;
     max-width: 1280px;
     margin: 0 auto;
+    padding: 1rem;
 }
 
 @media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -165,12 +173,12 @@ html, body{
     background-color: white;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .service-icon {
     font-size: 2.5rem;
-    color: #1a365d;
+    color: #253675;
     margin-bottom: 1rem;
 }
 
@@ -199,6 +207,12 @@ html, body{
 }
 
 @media (min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
     .team-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -275,7 +289,7 @@ html, body{
 }
 
 .contact-info ul li i {
-    color: #007bff;
+    color: #253675;
 }
 
 /* Formulario */
