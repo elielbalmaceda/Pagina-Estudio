@@ -6,7 +6,7 @@ const submitBtn = document.getElementById('submit-btn');
 
 // Configuración de EmailJS
 document.addEventListener('DOMContentLoaded', () => {
-    emailjs.init("13vrVxjlRSIHm0D7a");
+    emailjs.init("ZvC0Dn-p4j9DHSF3Q");
 });
 
 // Manejo del menú móvil
