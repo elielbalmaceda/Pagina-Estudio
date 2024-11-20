@@ -24,18 +24,32 @@ body {
     padding: 0 1rem;
 }
 
+/* Ocultar el texto del título en pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-brand {
+        display: none; /* Oculta el texto del nombre en pantallas pequeñas */
+    }
+}
+    
+.header .logo {
+      margin-right: auto; /* Centra el logo si es necesario */
+}
+  
 .logo {
     height: 40px;
     max-width: 100%;
     margin-right: 0.5rem;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente */
+}
+
 .nav-brand {
     color: white;
     font-size: 1.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
+    
 }
 
 /* Estilo del botón del menú móvil */
@@ -50,9 +64,13 @@ body {
 
 /* Menú oculto por defecto */
 .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: #1a202c;
+    z-index: 1000;
 }
 
 .nav-link {
@@ -68,7 +86,14 @@ body {
 
 /* Menú visible al activar */
 .nav-links.nav-active {
-    display: flex;
+    display: flex; /* Muestra el menú al activarse */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: #1a202c;
+    z-index: 1000;
 }
 
 /* Menú horizontal en pantallas grandes */
@@ -79,14 +104,14 @@ body {
     }
 
     .nav-links {
-        display: flex;
-        position: static;
-        flex-direction: row;
-        gap: 1.5rem;
-        justify-content: center;
-        /* Centra los enlaces horizontalmente */
-        padding: 0;
-        /* Asegura que no haya relleno sobrante */
+        display: flex; /* Asegura que los enlaces estén en fila */
+        position: static; /* Elimina el posicionamiento absoluto */
+        flex-direction: row; /* Coloca los enlaces en una línea horizontal */
+        gap: 1.5rem; /* Espaciado entre los enlaces */
+        justify-content: center; /* Centra los enlaces en la barra */
+        align-items: center; /* Centra verticalmente */
+        padding: 0; /* Asegura que no haya relleno adicional */
+        margin: 0 auto; /* Centra el contenedor del menú */
     }
 }
 
